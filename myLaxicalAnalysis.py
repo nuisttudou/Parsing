@@ -17,7 +17,7 @@ import re
 import sys
 import getopt
 from defination import *
-
+# from main import set_main_lex_content
 
 # c文件名字
 file_name = None
@@ -31,10 +31,10 @@ class Token(object):
     
     def __init__(self, type_index, value,row_number):
         self.type = DETAIL_TOKEN_STYLE[value] if (
-            type_index == 0 or type_index == 3 or type_index == 4
-        ) else TOKEN_STYLE[type_index]
-        self.value = value
-        self.row_number = row_number
+            type_index == 0 or type_index == 3 or type_index == 4 #关键字、运算符、分隔符具体化
+        ) else TOKEN_STYLE[type_index] #标识符 数常量 字符串常量
+        self.value = value #值
+        self.row_number = row_number #行号
 
 
 class Lexer(object):
@@ -198,6 +198,15 @@ def ui_use_lexer():
     out=""
     for token in lexer.tokens:
         out+=str(token.row_number)+': '+token.type+' '+token.value+"\n" #print('(%s, %s)' % (token.type, token.value))
+    # set_main_lex_content(lexer.tokens)
+    return out
+
+def ui_use_lexer_table():
+    lexer = Lexer()
+    lexer.main()
+    out=[]
+    for token in lexer.tokens:
+        out.append([token.type,token.value])
     return out
 
 def set_LaxicalAnalysis_content(input_content):

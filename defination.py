@@ -1,7 +1,11 @@
 # token比较大的分类
+
+
 TOKEN_STYLE = [
+    #关键字 标识符ID 数常量
     'KEY_WORD', 'IDENTIFIER', 'DIGIT_CONSTANT',
-    'OPERATOR', 'SEPARATOR', 'STRING_CONSTANT'
+    #运算符 分隔符号 字符串常量
+    'OPERATOR', 'SEPARATOR', 'STRING_CONSTANT' 
 ]
 
 # 将关键字、运算符、分隔符进行具体化
@@ -43,7 +47,7 @@ DETAIL_TOKEN_STYLE = {
 
 # 关键字
 keywords = [
-    ['int', 'float', 'double', 'char', 'void'],
+    ['int', 'float', 'double', 'char', 'void'], #类型 #void 
     ['if', 'for', 'while', 'do', 'else'], 
     ['include', 'return'],
 ]
